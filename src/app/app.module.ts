@@ -55,6 +55,7 @@ import { PointerDeviceService } from 'service/pointer-device.service';
 import { TabletopService } from 'service/tabletop.service';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { AppComponent } from './app.component';
     ResizableDirective,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
