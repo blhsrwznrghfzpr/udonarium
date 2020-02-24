@@ -58,6 +58,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { CharazipComponent } from './plugins/charazip/charazip.component';
+import { DeckEditorComponent } from './plugins/deck-editor/deck-editor.component';
+import { CardEditorComponent } from './plugins/deck-editor/card-editor/card-editor.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +107,8 @@ import { CharazipComponent } from './plugins/charazip/charazip.component';
     TooltipDirective,
     DraggableDirective,
     ResizableDirective,
+    DeckEditorComponent,
+    CardEditorComponent
   ],
   imports: [
     AppRoutingModule,
