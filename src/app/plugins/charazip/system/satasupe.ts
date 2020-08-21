@@ -161,10 +161,10 @@ export class Satasupe {
       if (!matchData) {
         continue;
       }
-      const rowId = matchData[1] -1;
-      const nameId = matchData[2] -1;
-      const hobbyName = hobbyNameList[rowId][nameId];
-      const category = ['ｻﾌﾞｶﾙ系', 'ｱｰﾄ系', 'ﾏｼﾞﾒ系', '休日系', 'ｲﾔｼ系', '風俗系'][nameId];
+      const colId = matchData[1] -1;
+      const rowId = matchData[2] -1;
+      const hobbyName = hobbyNameList[rowId][colId];
+      const category = ['ｻﾌﾞｶﾙ系', 'ｱｰﾄ系', 'ﾏｼﾞﾒ系', '休日系', 'ｲﾔｼ系', '風俗系'][colId];
       hobbyElement.appendChild(
         gameCharacter.createDataElement(
           `趣味${hobbyCount}`,
@@ -179,19 +179,19 @@ export class Satasupe {
     const conditionElement = gameCharacter.createDataElement('状態　',　'');
     gameCharacter.detailDataElement.appendChild(conditionElement);
     conditionElement.appendChild(
-      gameCharacter.createDataElement('トラウマ', json.cond.trauma.value)
+      gameCharacter.createDataElement('トラウマ', json.cond.trauma.value || '')
     );
     conditionElement.appendChild(
-      gameCharacter.createDataElement('中毒', json.cond.addiction.value)
+      gameCharacter.createDataElement('中毒', json.cond.addiction.value || '')
     );
     conditionElement.appendChild(
-      gameCharacter.createDataElement('トリコ', json.cond.prisoner.value)
+      gameCharacter.createDataElement('トリコ', json.cond.prisoner.value || '')
     );
     conditionElement.appendChild(
-      gameCharacter.createDataElement('SAN', json.cond.san.value)
+      gameCharacter.createDataElement('SAN', json.cond.san.value || '')
     );
     conditionElement.appendChild(
-      gameCharacter.createDataElement('クトゥルフ神話技能', json.cond.cthulhu.value)
+      gameCharacter.createDataElement('クトゥルフ神話技能', json.cond.cthulhu.value || '')
     );
 
     /*
@@ -200,19 +200,19 @@ export class Satasupe {
     const homeElement = gameCharacter.createDataElement('アジト　',　'');
     gameCharacter.detailDataElement.appendChild(homeElement);
     homeElement.appendChild(
-      gameCharacter.createDataElement('トラウマ', json.home.place)
+      gameCharacter.createDataElement('トラウマ', json.home.place || '')
     );
     homeElement.appendChild(
-      gameCharacter.createDataElement('中毒', json.home.comfortable)
+      gameCharacter.createDataElement('中毒', json.home.comfortable || '')
     );
     homeElement.appendChild(
-      gameCharacter.createDataElement('トリコ', json.home.security)
+      gameCharacter.createDataElement('トリコ', json.home.security || '')
     );
     
     /*
      * 一般装備
      */
-    const outfitsElement = gameCharacter.createDataElement('一般装備　使用/効果/特殊機能',　'');
+    const outfitsElement = gameCharacter.createDataElement('一般装備　使用／効果／特殊機能',　'');
     gameCharacter.detailDataElement.appendChild(outfitsElement);
     for (const outfits of json.outfits) {
       if (!outfits.name) {
@@ -221,7 +221,7 @@ export class Satasupe {
       outfitsElement.appendChild(
         gameCharacter.createNoteElement(
           outfits.name,
-          `${outfits.use}／${outfits.effect}／${outfits.notes}`
+          `${outfits.use || ''}／${outfits.effect || ''}／${outfits.notes || ''}`
         )
       );
     }
@@ -229,7 +229,7 @@ export class Satasupe {
     /*
      * 武器
      */
-    const weaponsElement = gameCharacter.createDataElement('武器　命中/ダメージ/射程/特殊機能',　'');
+    const weaponsElement = gameCharacter.createDataElement('武器　命中／ダメージ／射程／特殊機能',　'');
     gameCharacter.detailDataElement.appendChild(weaponsElement);
     for (const weapons of json.weapons) {
       if (!weapons.name) {
@@ -238,7 +238,7 @@ export class Satasupe {
       weaponsElement.appendChild(
         gameCharacter.createNoteElement(
           weapons.name,
-          `${weapons.aim}／${weapons.damage}/${weapons.range}／${weapons.notes}`
+          `${weapons.aim || ''}／${weapons.damage || ''}／${weapons.range || ''}／${weapons.notes || ''}`
         )
       );
     }
@@ -246,7 +246,7 @@ export class Satasupe {
     /*
      * 乗り物
      */
-    const vehiclesElement = gameCharacter.createDataElement('乗り物　名称/スピード/車体/荷物/特殊機能',　'');
+    const vehiclesElement = gameCharacter.createDataElement('乗り物　名称／スピード／車体／荷物／特殊機能',　'');
     gameCharacter.detailDataElement.appendChild(vehiclesElement);
     for (const vehicles of json.vehicles) {
       if (!vehicles.name) {
@@ -255,7 +255,7 @@ export class Satasupe {
       vehiclesElement.appendChild(
         gameCharacter.createNoteElement(
           vehicles.name,
-          `${vehicles.speed}／${vehicles.frame}/${vehicles.burden}／${vehicles.notes}`
+          `${vehicles.speed || ''}／${vehicles.frame || ''}／${vehicles.burden || ''}／${vehicles.notes || ''}`
         )
       );
     }
@@ -263,7 +263,7 @@ export class Satasupe {
     /*
      * カルマ
      */
-    const karmaElement = gameCharacter.createDataElement('カルマ　異能or代償名/使用/対象/判定/効果',　'');
+    const karmaElement = gameCharacter.createDataElement('カルマ　異能or代償名／使用／対象／判定／効果',　'');
     gameCharacter.detailDataElement.appendChild(karmaElement);
     for (const karma of json.karma) {
       if (!karma.name) {
@@ -272,13 +272,13 @@ export class Satasupe {
       karmaElement.appendChild(
         gameCharacter.createNoteElement(
           `${karma.name} (異能)`,
-          `${karma.talent.name}／${karma.talent.use}/${karma.talent.target}／${karma.talent.judge}／${karma.talent.effect}`
+          `${karma.talent.name || ''}／${karma.talent.use || ''}／${karma.talent.target || ''}／${karma.talent.judge || ''}／${karma.talent.effect || ''}`
         )
       );
       karmaElement.appendChild(
         gameCharacter.createNoteElement(
           `${karma.name} (代償)`,
-          `${karma.price.name}／${karma.price.use}/${karma.price.target}／${karma.price.judge}／${karma.price.effect}`
+          `${karma.price.name || ''}／${karma.price.use || ''}／${karma.price.target || ''}／${karma.price.judge || ''}／${karma.price.effect || ''}`
         )
       );
     }
