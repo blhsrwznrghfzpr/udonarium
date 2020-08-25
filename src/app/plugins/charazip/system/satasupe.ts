@@ -131,7 +131,7 @@ export class Satasupe {
     /*
      * 性業値
      */
-    const emotionElement = gameCharacter.createDataElement('性業値', '');
+    const emotionElement = gameCharacter.createDataElement('性業', '');
     gameCharacter.detailDataElement.appendChild(emotionElement);
     emotionElement.appendChild(
       gameCharacter.createDataElement('性業値', json.base.emotion)
@@ -298,15 +298,15 @@ D66
 
 //-----行為判定
 `;
-  cp += `\n (犯罪)R>={難易度}[{目標成功度},{ファンブル値}]
-(生活)R>={難易度}[{目標成功度},{ファンブル値}]
-(恋愛)R>={難易度}[{目標成功度},{ファンブル値}]
-(教養)R>={難易度}[{目標成功度},{ファンブル値}]
-(戦闘)R>={難易度}[{目標成功度},{ファンブル値}]
-(肉体)R>={難易度}[{目標成功度},{ファンブル値}]
-(精神)R>={難易度}[{目標成功度},{ファンブル値}]
+  cp += `\n ({犯罪})R>=
+({生活})R>=
+({恋愛})R>=
+({教養})R>=
+({戦闘})R>=
+({肉体})R>=
+({精神})R>=
 
-(戦闘力)R>={難易度}[{目標成功度},{ファンブル値},{必殺}]
+({攻撃力})R>=
 
 SR{性業値}
 
