@@ -87,6 +87,12 @@ export class CharazipComponent implements OnInit {
       generater: Insane.geneateByAppspot
     },
     {
+      system: "satasupe",
+      name: "サタスペ",
+      href: "https://character-sheets.appspot.com/satasupe/",
+      generater: Satasupe.geneateByAppspot
+    },
+    {
       system: "shinobigami",
       name: "シノビガミ",
       href: "https://character-sheets.appspot.com/shinobigami/",
@@ -128,12 +134,6 @@ export class CharazipComponent implements OnInit {
       href: "https://character-sheets.appspot.com/mnt/",
       generater: MonotoneMuseum.geneateByAppspot
     },
-    {
-      system: "satasupe",
-      name: "サタスペ",
-      href: "https://character-sheets.appspot.com/satasupe/",
-      generater: Satasupe.geneateByAppspot
-    }
   ];
 
   @ViewChild("input", { static: true })
