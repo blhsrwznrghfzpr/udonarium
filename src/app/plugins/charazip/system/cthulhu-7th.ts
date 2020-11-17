@@ -210,7 +210,7 @@ CC({ボーナス・ペナルティ})<={幸運} 〈幸運〉
       if (!Number.isNaN(vitality)) {
         const attackCount = json.arms_attack_count[i];
         const lastShot = json.arms_last_shot[i];
-        cp += `FAR(1,{${armName}},${vitality},{ボーナス・ペナルティ}) :${armName}/${range}/回数${attackCount}/装弾数${lastShot}/故障#${vitality}`;
+        cp += `\nFAR(1,{${armName}},${vitality},{ボーナス・ペナルティ}) :${armName}/${range}/回数${attackCount}/装弾数${lastShot}/故障#${vitality}`;
       }
       cp += `\n${damage} :${armName}(ダメージ)\n`;
     }
